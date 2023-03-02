@@ -26,7 +26,7 @@ const updateAnimal = (arr, callback) => {
 
   arr.forEach(element => {
     result.push(callback(element));
-  })
+  });
 
   return result;
 
