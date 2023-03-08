@@ -48,7 +48,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
+  return arr.join(' ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +66,9 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  for (let idx = 0; idx < str.length + 1; idx++) {
+    result.push(str.split('').slice(idx).join(''));
+  }
   return result;
 };
 
@@ -79,7 +81,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -126,7 +128,16 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(item => {
+    let process = 2;
+
+    while (process > 0) {
+      item = item.slice(item.indexOf(' ') + 1);
+      process--;
+    }
+
+    result.push(item);
+  })
   return result;
 };
 
