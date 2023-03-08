@@ -27,7 +27,7 @@ let starWarsPeople = [
 const sortStarWarsCharacters = (starWarsArr) => {
   return starWarsArr.sort((a, b) => {
     return parseInt(b.height) - parseInt(a.height);
-  })
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,7 +137,7 @@ const listFoods = (recipe) => {
     }
 
     result.push(item);
-  })
+  });
   return result;
 };
 
