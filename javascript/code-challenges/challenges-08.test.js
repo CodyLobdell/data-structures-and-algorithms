@@ -75,7 +75,9 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
+  let regex = /w/;
+
+  return regex.test(str);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +93,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  return /\d/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +104,7 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  return /world/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
