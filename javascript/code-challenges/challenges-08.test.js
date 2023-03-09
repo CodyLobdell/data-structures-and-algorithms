@@ -116,8 +116,10 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
+  let capitalizationPattern = /\b[A-Z]\w+/mg;
+  let capitals = str.match(capitalizationPattern);
 
-  let capitals = str.match(capitalizationpattern);
+  return capitals || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
