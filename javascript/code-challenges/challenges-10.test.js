@@ -56,7 +56,11 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  return matrix.reduce((accum, current) => {
+    return accum.concat(current);
+  }, []).reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
 };
 
 
