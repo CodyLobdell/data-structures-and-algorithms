@@ -148,7 +148,15 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let result;
+
+  arr.forEach(obj => {
+    result = obj.items.filter(obj => {
+      return obj.name === 'Treats';
+    });
+  });
+
+  return result[0].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
