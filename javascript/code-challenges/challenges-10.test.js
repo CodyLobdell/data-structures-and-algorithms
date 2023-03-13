@@ -28,17 +28,17 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  let max = 0;
+  let currentHighestValue = 0;
 
   matrix.forEach(arr => {
     arr.forEach(num => {
-      if (max < num) {
-        max = num;
+      if (currentHighestValue < num) {
+        currentHighestValue = num;
       }
     });
   });
 
-  return max;
+  return currentHighestValue;
 };
 
 /* ------------------------------------------------------------------------------------------------
