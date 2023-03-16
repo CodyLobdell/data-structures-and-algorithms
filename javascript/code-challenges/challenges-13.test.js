@@ -59,7 +59,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return str.split('').reduce((acc, curr, idx) => {
+    if (idx % 2 ===1) {
+      return acc + curr;
+    } else {
+      return acc;
+    }
+  }, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
