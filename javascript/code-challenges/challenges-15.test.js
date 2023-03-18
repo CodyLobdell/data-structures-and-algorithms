@@ -183,9 +183,21 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
-};
+  let win = false;
+  let coordToCheck = [];
 
+  const check = (coords) => {
+    let noBlanks = coords.every(coord => board[coord[0]][coord[1]] !== '');
+
+    if (noBlanks) {
+      let marker = board[0][coords[0][1]];
+      return coords.every(coord => board[coord[0]][coord[1]] === marker);
+    }
+
+
+    return win;
+  };
+};
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
