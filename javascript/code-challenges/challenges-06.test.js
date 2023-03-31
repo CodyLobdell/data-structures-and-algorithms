@@ -23,9 +23,9 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  return arr.map(people => {
-    return people.name.split('').reverse().join('');
-  })
+  return arr.map(person => {
+    return person.name.split('').reverse().join('');
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,8 +36,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  let result = str + ' The end.';
-  return result;
+  return str + ' The end.';
+
 };
 
 /* ------------------------------------------------------------------------------------------------
