@@ -1,25 +1,33 @@
 # Data Structures and Algorithms
 
-See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-code-challenges), in the Code 301 Setup Guide.
 
-## Repository Quick Tour and Usage
+## 401 Data Structures, Code Challenges
 
-### 301 Code Challenges
+# Challenge Title
+<!-- Code Challenge: Class 01 (array-reverse) -->
 
-Under the `javascript` folder, at the top level, is a sub-folder called `code-challenges`
+## Whiteboard Process
+![alt text](img/reverseArray_snip.jpg)
 
-Each day, you'll add one new file to this folder to do your work for the day's assigned code challenge
+## Approach & Efficiency
+<!-- I used a basic reverse function that I had used previously in REPLIT-->
 
-If you have not already done so, run `npm install` from within this folder to setup your system to be able to run tests using `Jest`
+## Solution
 
-To run your tests
+'use strict';
 
-- Change to the `javascript` folder
-- run `npm test` to run all of the tests
-- run `npm test ##` to only run tests for challenge ## (i.e. 01)
+function reverseArray(arr) {
+  let reversedArr = [];
 
-### 401 Data Structures, Code Challenges
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversedArr.push(arr[i]);
+  }
 
-- Table of Contents
+  return reversedArr;
+}
 
+const arr = [1, 2, 3, 4, 5];
+const reversedArr = reverseArray(arr);
+console.log(reversedArr);
 
+// Output: [5, 4, 3, 2, 1]
