@@ -1,10 +1,11 @@
 'use strict';
 
-// Require our linked list implementation
-const LinkedList = require('../linked-list');
+const Node = require('./node');
 
-describe('Linked List', () => {
-  it('works', () => {
-    expect(true).toBeTruthy();
+describe('Node', () => {
+  test('should create a node with the given value and null next pointer', () => {
+    const node = new Node(42);
+    expect(node.value).toBe(42);
+    expect(node.next).toBe(null);
   });
 });
