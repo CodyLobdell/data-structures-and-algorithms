@@ -1,24 +1,103 @@
 'use strict';
 
-function validateBrackets(str) {
-  let stack = [];
-  const openBrackets = ['(', '{', '['];
-  const closeBrackets = [')', '}', ']'];
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
 
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
+class BinaryTree {
+  constructor() {
+    this.root = null;
+  }
 
-    if (openBrackets.includes(char)) {
-      stack.push(char);
-    } else if (closeBrackets.includes(char)) {
-      const matchingOpenBracket = openBrackets[closeBrackets.indexOf(char)];
-      if (stack.length === 0 || stack[stack.length - 1] !== matchingOpenBracket) {
-        return false;
+  // Depth first traversal methods
+  preOrder() {
+    const values = [];
+    const traverse = (node) => {
+      if (node) {
+        values.push(node.value);
+        traverse(node.left);
+        traverse(node.right);
       }
-      stack.pop();
+    };
+    traverse(this.root);
+    return values;
+  }
+
+  inOrder() {
+    const values = [];
+    const traverse = (node) => {
+      if (node) {
+        traverse(node.left);
+        values.push(node.value);
+        traverse(node.right);
+      }
+    };
+    traverse(this.root);
+    return values;
+  }
+
+  postOrder() {
+    const values = [];
+    const traverse = (node) => {
+      if (node) {
+        traverse(node.left);
+        traverse(node.right);
+        values.push(node.value);
+      }
+    };
+    traverse(this.root);
+    return values;
+  }
+}
+
+class BinarySearchTree extends BinaryTree {
+  constructor() {
+    super();
+  }
+
+  add(value) {
+    const newNode = new Node(value);
+    if (!this.root) {
+      this.root = newNode;
+      return;
+    }
+
+    let current = this.root;
+    while (current) {
+      if (value < current.value) {
+        if (!current.left) {
+          current.left = newNode;
+          return;
+        }
+        current = current.left;
+      } else if (value > current.value) {
+        if (!current.right) {
+          current.right = newNode;
+          return;
+        }
+        current = current.right;
+      } else {
+        // Value already exists in the tree
+        return;
+      }
     }
   }
 
-  return stack.length === 0;
+  contains(value) {
+    let current = this.root;
+    while (current) {
+      if (value === current.value) {
+        return true;
+      } else if (value < current.value) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
 }
-
