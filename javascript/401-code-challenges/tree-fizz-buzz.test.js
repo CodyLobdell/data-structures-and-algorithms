@@ -1,20 +1,33 @@
 'use strict';
 
-const { expect } = require('@jest/globals');
-const Tree = require('./tree');
-const breadth_first = require('./breadth_first');
+const { TreeNode, fizzBuzzTree } = require('./fizzBuzzTree');
 
-describe('breadth_first', () => {
-  test('returns an array of all values in the tree, in the order they were encountered', () => {
+describe('fizzBuzzTree', () => {
+  test('returns null for falsy input', () => {
+    expect(fizzBuzzTree(null)).toBeNull();
+  });
 
-    const tree = new Tree(1);
-    tree.left = new Tree(2);
-    tree.right = new Tree(3);
-    tree.left.left = new Tree(4);
-    tree.left.right = new Tree(5);
-    tree.right.left = new Tree(6);
-    tree.right.right = new Tree(7);
+  test('returns a new tree with modified values', () => {
+    // Create a sample tree
+    const root = new TreeNode(1);
+    const child1 = new TreeNode(3);
+    const child2 = new TreeNode(5);
+    const child3 = new TreeNode(15);
+    const child4 = new TreeNode(7);
+    root.children = [child1, child2, child3, child4];
 
-    expect(values).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    // Expected output tree
+    const expectedRoot = new TreeNode('1');
+    const expectedChild1 = new TreeNode('Fizz');
+    const expectedChild2 = new TreeNode('Buzz');
+    const expectedChild3 = new TreeNode('FizzBuzz');
+    const expectedChild4 = new TreeNode('7');
+    expectedRoot.children = [expectedChild1, expectedChild2, expectedChild3, expectedChild4];
+
+    // Test the function with the sample tree
+    const result = fizzBuzzTree(root);
+
+    // Compare the expected and actual output trees
+    expect(result).toEqual(expectedRoot);
   });
 });

@@ -1,24 +1,35 @@
 'use strict';
 
-function breadth_first(tree) {
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.children = [];
+  }
+}
 
-  let queue = [tree];
-
-  let values = [];
-
-
-  while (queue.length) {
-    let node = queue.shift();
-
-    values.push(node.value);
-
-    if (node.left) {
-      queue.push(node.left);
-    }
-    if (node.right) {
-      queue.push(node.right);
-    }
+function fizzBuzzTree(tree) {
+  if (!tree) {
+    return null;
   }
 
-  return values;
+  const fizzBuzzValue = (value) => {
+    if (value % 3 === 0 && value % 5 === 0) {
+      return 'FizzBuzz';
+    } else if (value % 3 === 0) {
+      return 'Fizz';
+    } else if (value % 5 === 0) {
+      return 'Buzz';
+    } else {
+      return value.toString();
+    }
+  };
+
+  const newTree = new TreeNode(fizzBuzzValue(tree.value));
+
+  for (let i = 0; i < tree.children.length; i++) {
+    const child = fizzBuzzTree(tree.children[i]);
+    newTree.children.push(child);
+  }
+
+  return newTree;
 }
