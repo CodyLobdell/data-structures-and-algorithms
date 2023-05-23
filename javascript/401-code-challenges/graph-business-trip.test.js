@@ -1,24 +1,13 @@
 'use strict';
 
-// Create a new instance of the Graph class
-const graph = new Graph();
+const graph = {
+  "City A": { "City B": 100, "City C": 200 },
+  "City B": { "City C": 50, "City D": 150 },
+  "City C": { "City D": 250 },
+  "City D": { "City E": 350 }
+};
 
-// Add nodes
-graph.addNode('A');
-graph.addNode('B');
-graph.addNode('C');
-graph.addNode('D');
-graph.addNode('E');
+const cities = ["City A", "City B", "City C", "City D", "City E"];
+const tripCost = businessTrip(graph, cities);
 
-// Add edges
-graph.addEdge('A', 'B');
-graph.addEdge('A', 'C');
-graph.addEdge('B', 'D');
-graph.addEdge('C', 'E');
-graph.addEdge('D', 'E');
-
-// Perform breadth-first traversal from 'A'
-const traversalResult = graph.breadthFirst('A');
-
-// Expected output: ['A', 'B', 'C', 'D', 'E']
-console.log(traversalResult);
+console.log(tripCost);  // Output: 950
