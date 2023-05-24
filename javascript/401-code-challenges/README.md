@@ -1,3 +1,3 @@
 
-![Whiteboard](img/Code_Challenge_18.jpg "CC18_Whiteboard")
+![Whiteboard](img/Code_Challenge_26.jpg "CC26_Whiteboard")
 
